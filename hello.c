@@ -1,2 +1,0 @@
-linda is a duck
-
