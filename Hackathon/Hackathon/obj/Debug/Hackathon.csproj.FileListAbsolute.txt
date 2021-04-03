@@ -1,0 +1,12 @@
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.OverlayWindow.resources
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\bin\Debug\System.Numerics.Vectors.dll
+D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
