@@ -9,8 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
+using Hackathon.Tools;
 
-namespace Hackathon
+namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
@@ -121,7 +122,7 @@ namespace Hackathon
                     timerMainText = timeLeft.ToString(@"mm\:ss");
                 }
 
-                Timer.DrawCircularTimer(e,
+                RenderTimer.DrawCircularTimer(e,
                     new Vector2(Width - timerPadding, Height- timerPadding),
                     timerSize,
                     timerMainText,

@@ -23,3 +23,16 @@ D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hacka
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.exe
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.TaskTraySettings.resources
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.OverlayWindow.resources
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.TaskTraySettings.resources
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete

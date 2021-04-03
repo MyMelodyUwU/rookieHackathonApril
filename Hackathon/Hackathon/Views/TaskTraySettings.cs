@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hackathon
+namespace Hackathon.Views
 {
     public partial class TaskTraySettings : Form
     {
