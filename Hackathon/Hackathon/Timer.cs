@@ -10,6 +10,20 @@ using System.Drawing.Drawing2D;
 
 public static class Timer
 {
+    /// <summary>
+    /// Draw a circular progress bar/timer
+    /// </summary>
+    /// <param name="e">Painter event arguements from paint function</param>
+    /// <param name="position">Position to draw timer</param>
+    /// <param name="radius">Timer radius/size</param>
+    /// <param name="text">The main timer text</param>
+    /// <param name="col">Main timer arc color</param>
+    /// <param name="bgCol">Background timer arc color</param>
+    /// <param name="percent">Completage percent 0-100</param>
+    /// <param name="subText">Subtext. Under main text</param>
+    /// <param name="width">Arc line width</param>
+    /// <param name="fontSize">Main text font size</param>
+    /// <param name="subTextFontSize">Sub text font size</param>
     public static void DrawCircularTimer(PaintEventArgs e, Vector2 position, float radius, string text, Color col,Color bgCol, float percent = 100, string subText="", float width=10, int fontSize= 16, int subTextFontSize=12)
     {
         e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

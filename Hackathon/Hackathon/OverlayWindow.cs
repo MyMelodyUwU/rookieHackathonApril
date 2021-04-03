@@ -77,6 +77,7 @@ namespace Hackathon
             else
             {
                 Console.WriteLine("No tasks next");
+                currTask = new Task(0, 0, Color.LawnGreen, Color.White, "TASKS COMPLETE!", "", 14);
             }
         }
 
@@ -109,10 +110,17 @@ namespace Hackathon
                 float percent = 100 - ((currSec + (currMin * 60)) / (timerSeconds + (timerMinutes * 60))) * 100;
 
                 TimeSpan timeLeft = new TimeSpan(0, (int)currMin, (int)currSec);
+
+                string timerMainText = currTask.timerMainText;
+                if(timerMainText == null)
+                {
+                    timerMainText = timeLeft.ToString(@"mm\:ss");
+                }
+
                 Timer.DrawCircularTimer(e,
                     new Vector2(Width - timerPadding, Height- timerPadding),
                     timerSize,
-                    timeLeft.ToString(@"mm\:ss"),
+                    timerMainText,
                     currTask.timerColor, 
                     currTask.timerBGColor,
                     percent,
@@ -132,8 +140,8 @@ namespace Hackathon
 
         void LoadTasks()
         {
-            tasks.Add(new Task(2, 0, Color.Orange,Color.LightGray, "BREAK", 16, 8, 10));
-            tasks.Add(new Task(1, 0, Color.LawnGreen,Color.LightGray, "WORK", 16, 8, 10));
+            tasks.Add(new Task(1, 0, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
+            tasks.Add(new Task(1, 0, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
         }
     }
 
@@ -142,6 +150,7 @@ namespace Hackathon
         public int timerMinutes;
         public int timerSeconds;
 
+        public string timerMainText;
         public string timerSubText;
         public Color timerColor;
         public Color timerBGColor;
@@ -151,10 +160,11 @@ namespace Hackathon
 
         public int timerWidth;
 
-        public Task(int timerMinutes, int timerSeconds, Color timerColor,Color timerBGColor, string timerSubText ="", int textFontSize=16, int subTextFontSize=10,int timerWidth=10)
+        public Task(int timerMinutes, int timerSeconds, Color timerColor,Color timerBGColor,string timerMainText=null, string timerSubText ="", int textFontSize=16, int subTextFontSize=10,int timerWidth=10)
         {
             this.timerMinutes = timerMinutes;
             this.timerSeconds = timerSeconds;
+            this.timerMainText = timerMainText;
             this.timerSubText = timerSubText;
             this.timerColor = timerColor;
             this.timerBGColor = timerBGColor;
