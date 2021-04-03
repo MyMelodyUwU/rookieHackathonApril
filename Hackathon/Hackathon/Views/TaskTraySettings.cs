@@ -19,7 +19,7 @@ namespace Hackathon.Views
 
         private void timerSizeTB_Scroll(object sender, EventArgs e)
         {
-            OverlayWindow.instance.timerSize = timerSizeTB.Value;
+            Program.overlayWindowInstance.timerSize = timerSizeTB.Value;
         }
     }
 }

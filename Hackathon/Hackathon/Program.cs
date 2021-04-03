@@ -9,6 +9,9 @@ namespace Hackathon
 {
     static class Program
     {
+        public static Views.OverlayWindow overlayWindowInstance;
+        public static Views.TaskTraySettings tasktraySettingsInstance;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +20,11 @@ namespace Hackathon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.OverlayWindow());
+
+            overlayWindowInstance = new Views.OverlayWindow();
+            tasktraySettingsInstance = new Views.TaskTraySettings();
+
+            Application.Run(overlayWindowInstance);
         }
     }
 }

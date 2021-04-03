@@ -15,7 +15,6 @@ namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
-<<<<<<< HEAD:Hackathon/Hackathon/OverlayWindow.cs
         public static OverlayWindow instance;
         public static TaskTraySettings taskTrayInstance;
 
@@ -38,8 +37,6 @@ namespace Hackathon.Views
 
         public const int LWA_COLORKEY = 0x030201;
 
-=======
->>>>>>> steveKabir:Hackathon/Hackathon/Views/OverlayWindow.cs
         public OverlayWindow()
         {
             InitializeComponent();
@@ -151,15 +148,9 @@ namespace Hackathon.Views
                 if(timerMainText == null)
                     timerMainText = timeLeft.ToString(@"mm\:ss");
 
-<<<<<<< HEAD:Hackathon/Hackathon/OverlayWindow.cs
-                Timer.DrawCircularTimer(e,
-                    new Vector2(Width - m_timerPadding, Height - m_timerPadding),
-                    m_timerSize,
-=======
-                RenderTimer.DrawCircularTimer(e,
+                Tools.RenderTimer.DrawCircularTimer(e,
                     new Vector2(Width - timerPadding, Height- timerPadding),
                     timerSize,
->>>>>>> steveKabir:Hackathon/Hackathon/Views/OverlayWindow.cs
                     timerMainText,
                     currTask.timerColor, 
                     currTask.timerBGColor,
