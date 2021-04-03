@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
+using Hackathon.Tools;
 
-namespace Hackathon
+namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
+<<<<<<< HEAD:Hackathon/Hackathon/OverlayWindow.cs
         public static OverlayWindow instance;
         public static TaskTraySettings taskTrayInstance;
 
@@ -36,6 +38,8 @@ namespace Hackathon
 
         public const int LWA_COLORKEY = 0x030201;
 
+=======
+>>>>>>> steveKabir:Hackathon/Hackathon/Views/OverlayWindow.cs
         public OverlayWindow()
         {
             InitializeComponent();
@@ -43,11 +47,11 @@ namespace Hackathon
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
 
-            SetWindowLong(this.Handle, GWL_EXSTYLE,
-             (IntPtr)(GetWindowLong(this.Handle, GWL_EXSTYLE) | WS_EX_LAYERED | WS_EX_TRANSPARENT));
+            NativeImport.SetWindowLong(this.Handle, NativeImport.WindowsStyleModifiers.GWL_EXSTYLE,
+             (IntPtr)(NativeImport.GetWindowLong(this.Handle, NativeImport.WindowsStyleModifiers.GWL_EXSTYLE) | NativeImport.WindowsStyleModifiers.WS_EX_LAYERED | NativeImport.WindowsStyleModifiers.WS_EX_TRANSPARENT));
             // set transparency to 50% (128)
  
-            SetLayeredWindowAttributes(this.Handle, LWA_COLORKEY, 1, LWA_ALPHA);
+            NativeImport.SetLayeredWindowAttributes(this.Handle, NativeImport.WindowsStyleModifiers.LWA_COLORKEY, 1, NativeImport.WindowsStyleModifiers.LWA_ALPHA);
 
             this.BackColor = Color.FromArgb(1,2,3);
         }
@@ -121,9 +125,7 @@ namespace Hackathon
                 currSec--;
 
                 if (currMin <= 0 && currSec <= 0)
-                {
                     NextTask();
-                }
 
                 if (currSec <= 0)
                 {
@@ -145,14 +147,19 @@ namespace Hackathon
                 TimeSpan timeLeft = new TimeSpan(0, (int)currMin, (int)currSec);
 
                 string timerMainText = currTask.timerMainText;
-                if(timerMainText == null)
-                {
-                    timerMainText = timeLeft.ToString(@"mm\:ss");
-                }
 
+                if(timerMainText == null)
+                    timerMainText = timeLeft.ToString(@"mm\:ss");
+
+<<<<<<< HEAD:Hackathon/Hackathon/OverlayWindow.cs
                 Timer.DrawCircularTimer(e,
                     new Vector2(Width - m_timerPadding, Height - m_timerPadding),
                     m_timerSize,
+=======
+                RenderTimer.DrawCircularTimer(e,
+                    new Vector2(Width - timerPadding, Height- timerPadding),
+                    timerSize,
+>>>>>>> steveKabir:Hackathon/Hackathon/Views/OverlayWindow.cs
                     timerMainText,
                     currTask.timerColor, 
                     currTask.timerBGColor,

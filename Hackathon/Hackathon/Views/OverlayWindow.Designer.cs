@@ -1,5 +1,5 @@
 ﻿
-namespace Hackathon
+namespace Hackathon.Views
 {
     partial class OverlayWindow
     {
