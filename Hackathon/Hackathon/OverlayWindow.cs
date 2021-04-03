@@ -78,6 +78,10 @@ namespace Hackathon
             {
                 Console.WriteLine("No tasks next");
                 currTask = new Task(0, 0, Color.LawnGreen, Color.White, "TASKS COMPLETE!", "", 14);
+                timerMinutes = currTask.timerMinutes;
+                timerSeconds = currTask.timerSeconds;
+                currMin = timerMinutes;
+                currSec = timerSeconds;
             }
         }
 
@@ -139,9 +143,9 @@ namespace Hackathon
         }
 
         void LoadTasks()
-        {
-            tasks.Add(new Task(1, 0, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
-            tasks.Add(new Task(1, 0, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
+        { 
+            tasks.Add(new Task(0, 3, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
+            tasks.Add(new Task(0, 3, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
         }
     }
 
