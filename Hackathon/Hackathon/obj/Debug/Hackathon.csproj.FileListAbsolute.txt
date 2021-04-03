@@ -22,3 +22,4 @@ D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hacka
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.exe
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.TaskTraySettings.resources

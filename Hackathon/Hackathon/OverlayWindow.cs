@@ -151,6 +151,9 @@ namespace Hackathon
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
         {
             //Open up settings panel
+            TaskTraySettings taskTraySettings = new TaskTraySettings();
+            taskTraySettings.Show();
+            taskTraySettings.TopMost = true;
         }
     }
 
