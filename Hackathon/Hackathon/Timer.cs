@@ -10,17 +10,19 @@ using System.Drawing.Drawing2D;
 
 public static class Timer
 {
-    public static void DrawCircularTimer(PaintEventArgs e, Vector2 position, float radius, string text, Color col, float percent = 100, string subText="", float width=10, int fontSize= 16, int subTextFontSize=12)
+    public static void DrawCircularTimer(PaintEventArgs e, Vector2 position, float radius, string text, Color col,Color bgCol, float percent = 100, string subText="", float width=10, int fontSize= 16, int subTextFontSize=12)
     {
         e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
         Pen arcPen = new Pen(col, width);
+        Pen arcBGPen = new Pen(bgCol, width);
 
         // Create start and sweep angles on ellipse.
         float startAngle = 360 * (percent / 100) - 90;
         float sweepAngle = 270 - startAngle;
 
         // Draw arc to screen.
+        e.Graphics.DrawArc(arcBGPen, position.X - radius, position.Y - radius, radius, radius, 0, 360);
         e.Graphics.DrawArc(arcPen, position.X - radius, position.Y - radius, radius, radius, startAngle, sweepAngle);
 
         Font textFont = new Font("Arial Black", fontSize);

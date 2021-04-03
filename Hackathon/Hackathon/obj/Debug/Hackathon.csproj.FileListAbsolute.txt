@@ -10,3 +10,15 @@ D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.O
 D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
 D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\bin\Debug\System.Numerics.Vectors.dll
 D:\Applications\Visual Studio\Projects\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Numerics.Vectors.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.OverlayWindow.resources
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.pdb

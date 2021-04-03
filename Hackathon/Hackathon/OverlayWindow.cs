@@ -113,7 +113,9 @@ namespace Hackathon
                     new Vector2(Width - timerPadding, Height- timerPadding),
                     timerSize,
                     timeLeft.ToString(@"mm\:ss"),
-                    currTask.timerColor, percent,
+                    currTask.timerColor, 
+                    currTask.timerBGColor,
+                    percent,
                     currTask.timerSubText,
                     currTask.timerWidth,
                     currTask.textFontSize,
@@ -130,8 +132,8 @@ namespace Hackathon
 
         void LoadTasks()
         {
-            tasks.Add(new Task(2, 0, Color.Orange, "BREAK", 16, 8, 10));
-            tasks.Add(new Task(1, 0, Color.LawnGreen, "WORK", 16, 8, 10));
+            tasks.Add(new Task(2, 0, Color.Orange,Color.LightGray, "BREAK", 16, 8, 10));
+            tasks.Add(new Task(1, 0, Color.LawnGreen,Color.LightGray, "WORK", 16, 8, 10));
         }
     }
 
@@ -142,18 +144,20 @@ namespace Hackathon
 
         public string timerSubText;
         public Color timerColor;
+        public Color timerBGColor;
 
         public int textFontSize;
         public int subTextFontSize;
 
         public int timerWidth;
 
-        public Task(int timerMinutes, int timerSeconds, Color timerColor,string timerSubText ="", int textFontSize=16, int subTextFontSize=10,int timerWidth=10)
+        public Task(int timerMinutes, int timerSeconds, Color timerColor,Color timerBGColor, string timerSubText ="", int textFontSize=16, int subTextFontSize=10,int timerWidth=10)
         {
             this.timerMinutes = timerMinutes;
             this.timerSeconds = timerSeconds;
             this.timerSubText = timerSubText;
             this.timerColor = timerColor;
+            this.timerBGColor = timerBGColor;
             this.textFontSize = textFontSize;
             this.subTextFontSize = subTextFontSize;
             this.timerWidth = timerWidth;
