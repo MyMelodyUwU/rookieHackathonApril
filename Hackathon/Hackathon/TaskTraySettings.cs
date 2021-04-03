@@ -16,5 +16,10 @@ namespace Hackathon
         {
             InitializeComponent();
         }
+
+        private void timerSizeTB_Scroll(object sender, EventArgs e)
+        {
+            OverlayWindow.instance.timerSize = timerSizeTB.Value;
+        }
     }
 }

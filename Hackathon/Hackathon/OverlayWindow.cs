@@ -14,6 +14,9 @@ namespace Hackathon
 {
     public partial class OverlayWindow : Form
     {
+        public static OverlayWindow instance;
+        public static TaskTraySettings taskTrayInstance;
+
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -49,8 +52,34 @@ namespace Hackathon
             this.BackColor = Color.FromArgb(1,2,3);
         }
 
-        int timerSize = 100;
-        int timerPadding = 50;
+        private int m_timerSize = 100;
+        public int timerSize
+        {
+            get
+            {
+                return m_timerSize;
+            }
+            set
+            {
+                if (m_timerSize != value)
+                    m_timerSize = value;
+            }
+        }
+
+        private int m_timerPadding = 50;
+        public int timerPadding
+        {
+            get
+            {
+                return m_timerPadding;
+            }
+            set
+            {
+                if (m_timerPadding != value)
+                    m_timerPadding = value;
+            }
+        }
+
         List<Task> tasks = new List<Task>();
         Task currTask = null;
         int currTaskIndex = 0;
@@ -122,8 +151,8 @@ namespace Hackathon
                 }
 
                 Timer.DrawCircularTimer(e,
-                    new Vector2(Width - timerPadding, Height- timerPadding),
-                    timerSize,
+                    new Vector2(Width - m_timerPadding, Height - m_timerPadding),
+                    m_timerSize,
                     timerMainText,
                     currTask.timerColor, 
                     currTask.timerBGColor,
@@ -138,6 +167,10 @@ namespace Hackathon
 
         private void OverlayWindow_Load(object sender, EventArgs e)
         {
+            instance = this;
+            TaskTraySettings taskTraySettings = new TaskTraySettings();
+            taskTrayInstance = taskTraySettings;
+
             LoadTasks();
             NextTask();
         }
@@ -151,9 +184,10 @@ namespace Hackathon
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
         {
             //Open up settings panel
-            TaskTraySettings taskTraySettings = new TaskTraySettings();
-            taskTraySettings.Show();
-            taskTraySettings.TopMost = true;
+            taskTrayInstance.Show();
+            taskTrayInstance.StartPosition = FormStartPosition.Manual;
+            taskTrayInstance.Location = new Point(Width - taskTrayInstance.Size.Width, Height - taskTrayInstance.Size.Height);
+            taskTrayInstance.TopMost = true;
         }
     }
 
