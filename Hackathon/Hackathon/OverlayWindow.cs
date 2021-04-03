@@ -147,6 +147,11 @@ namespace Hackathon
             tasks.Add(new Task(0, 3, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
             tasks.Add(new Task(0, 3, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
         }
+
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            //Open up settings panel
+        }
     }
 
     public class Task
