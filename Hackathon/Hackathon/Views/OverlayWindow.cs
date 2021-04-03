@@ -15,25 +15,6 @@ namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
-
-        [DllImport("user32.dll")]
-        static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
-
-        [DllImport("user32.dll")]
-        static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
-
-        public const int GWL_EXSTYLE = -20;
-
-        public const int WS_EX_LAYERED = 0x80000;
-
-        public const int WS_EX_TRANSPARENT = 0x20;
-
-        public const int LWA_ALPHA = 0x1;
-
-        public const int LWA_COLORKEY = 0x030201;
-
         public OverlayWindow()
         {
             InitializeComponent();
@@ -41,11 +22,11 @@ namespace Hackathon.Views
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
 
-            SetWindowLong(this.Handle, GWL_EXSTYLE,
-             (IntPtr)(GetWindowLong(this.Handle, GWL_EXSTYLE) | WS_EX_LAYERED | WS_EX_TRANSPARENT));
+            NativeImport.SetWindowLong(this.Handle, NativeImport.WindowsStyleModifiers.GWL_EXSTYLE,
+             (IntPtr)(NativeImport.GetWindowLong(this.Handle, NativeImport.WindowsStyleModifiers.GWL_EXSTYLE) | NativeImport.WindowsStyleModifiers.WS_EX_LAYERED | NativeImport.WindowsStyleModifiers.WS_EX_TRANSPARENT));
             // set transparency to 50% (128)
  
-            SetLayeredWindowAttributes(this.Handle, LWA_COLORKEY, 1, LWA_ALPHA);
+            NativeImport.SetLayeredWindowAttributes(this.Handle, NativeImport.WindowsStyleModifiers.LWA_COLORKEY, 1, NativeImport.WindowsStyleModifiers.LWA_ALPHA);
 
             this.BackColor = Color.FromArgb(1,2,3);
         }
@@ -93,9 +74,7 @@ namespace Hackathon.Views
                 currSec--;
 
                 if (currMin <= 0 && currSec <= 0)
-                {
                     NextTask();
-                }
 
                 if (currSec <= 0)
                 {
@@ -117,10 +96,9 @@ namespace Hackathon.Views
                 TimeSpan timeLeft = new TimeSpan(0, (int)currMin, (int)currSec);
 
                 string timerMainText = currTask.timerMainText;
+
                 if(timerMainText == null)
-                {
                     timerMainText = timeLeft.ToString(@"mm\:ss");
-                }
 
                 RenderTimer.DrawCircularTimer(e,
                     new Vector2(Width - timerPadding, Height- timerPadding),

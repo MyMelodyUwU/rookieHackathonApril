@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\NativeImport.cs" />
     <Compile Include="Views\OverlayWindow.cs">
       <SubType>Form</SubType>
     </Compile>
