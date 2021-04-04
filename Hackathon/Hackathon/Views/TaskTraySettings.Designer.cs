@@ -270,11 +270,12 @@ namespace Hackathon.Views
             this.MinimizeBox = false;
             this.Name = "TaskTraySettings";
             this.ShowInTaskbar = false;
-            this.Text = "Hackathon Settings";
+            this.Text = "ProcrastinateMe Settings";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.TaskTraySettings_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TaskTraySettings_FormClosing);
             this.Load += new System.EventHandler(this.TaskTraySettings_Load);
+            this.Click += new System.EventHandler(this.TaskTraySettings_Click);
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.padding_TB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthTB)).EndInit();

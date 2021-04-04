@@ -58,7 +58,7 @@ namespace Hackathon.Views
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OverlayWindow";
             this.ShowInTaskbar = false;
-            this.Text = "OverlayWindow";
+            this.Text = "ProcrastinateMe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OverlayWindow_FormClosing);
             this.Load += new System.EventHandler(this.OverlayWindow_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OverlayWindow_Paint);

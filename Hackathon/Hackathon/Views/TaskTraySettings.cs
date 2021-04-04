@@ -172,5 +172,10 @@ namespace Hackathon.Views
             darkModeCB.Enabled = !autoDarkMode.Checked;
             Program.overlayWindowInstance.autoDarkMode = autoDarkMode.Checked;
         }
+
+        private void TaskTraySettings_Click(object sender, EventArgs e)
+        {
+            Program.tasktrayIconSettingsInstance.Hide();
+        }
     }
 }

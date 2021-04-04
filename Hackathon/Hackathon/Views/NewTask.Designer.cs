@@ -148,6 +148,7 @@ namespace Hackathon.Views
             this.Controls.Add(this.taskNameInput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewTask";
+            this.ShowInTaskbar = false;
             this.Text = "NewTask";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewTask_FormClosing);

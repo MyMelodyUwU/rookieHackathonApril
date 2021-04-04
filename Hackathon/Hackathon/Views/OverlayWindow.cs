@@ -11,6 +11,7 @@ namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
+
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -186,10 +187,11 @@ namespace Hackathon.Views
 
         void updateAutoMode()
         {
-            var col = GetColorAt(new Point(Width - m_timerPadding, Height- m_timerPadding));
-            float avg = (col.R + col.G + col.B) / 3;
-            Console.WriteLine(avg.ToString());
-            if(avg > 127)
+            Color[] cols = getColorsAt(new Point(Screen.PrimaryScreen.Bounds.Width - m_timerPadding, Screen.PrimaryScreen.Bounds.Height - m_timerPadding), new Point(timerSize/2,timerSize/2));
+            float avgB = avgBrightness(cols);
+
+            Console.WriteLine(avgB.ToString());
+            if(avgB > 0.3f)
             {
                 if (Program.tasktraySettingsInstance.darkMode)
                 {
@@ -221,7 +223,7 @@ namespace Hackathon.Views
                     timerMainText = timeLeft.ToString(@"mm\:ss");
 
                 RenderTimer.DrawCircularTimer(e,
-                    new Vector2(Width - m_timerPadding, Height- m_timerPadding),
+                    new Vector2(Screen.GetWorkingArea(Point.Empty).Width - m_timerPadding, Screen.GetWorkingArea(Point.Empty).Height - m_timerPadding),
                     timerSize,
                     timerMainText,
                     currTask.timerColor,
@@ -235,9 +237,10 @@ namespace Hackathon.Views
             }
         }
 
-        Bitmap screenPixel = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
+        
         public Color GetColorAt(Point location)
         {
+            Bitmap screenPixel = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
             using (Graphics gdest = Graphics.FromImage(screenPixel))
             {
                 using (Graphics gsrc = Graphics.FromHwnd(IntPtr.Zero))
@@ -251,6 +254,56 @@ namespace Hackathon.Views
             }
 
             return screenPixel.GetPixel(0, 0);
+        }
+
+        
+        public Color[] getColorsAt(Point location, Point size)
+        {
+            Bitmap screenPixel = new Bitmap(size.X, size.Y, PixelFormat.Format32bppArgb);
+            using (Graphics gdest = Graphics.FromImage(screenPixel))
+            {
+                using (Graphics gsrc = Graphics.FromHwnd(IntPtr.Zero))
+                {
+                    IntPtr hSrcDC = gsrc.GetHdc();
+                    IntPtr hDC = gdest.GetHdc();
+                    int retval = NativeImport.BitBlt(hDC, 0, 0, (size.X), (size.Y), hSrcDC, location.X - (size.X), location.Y - (size.Y), (int)CopyPixelOperation.SourceCopy);
+                    gdest.ReleaseHdc();
+                    gsrc.ReleaseHdc();
+                }
+            }
+
+            List<Color> cols = new List<Color>();
+            for(int x =0; x < screenPixel.Width;x++)
+            {
+                for(int y=0; y < screenPixel.Height; y++)
+                {
+                    cols.Add(screenPixel.GetPixel(x, y));
+                }
+            }
+
+            return cols.ToArray();
+        }
+
+        Color avgColor(Color[] cols)
+        {
+            Vector3 avgCol = Vector3.Zero;
+            foreach(Color col in cols)
+            {
+                avgCol += new Vector3(col.R,col.G,col.B);
+            }
+            avgCol /= cols.Length;
+            return Color.FromArgb((int)avgCol.X, (int)avgCol.Y, (int)avgCol.Z);
+        }
+
+        float avgBrightness(Color[] cols)
+        {
+            float avgB = 0;
+            foreach(Color col in cols)
+            {
+                avgB += col.GetBrightness();
+            }
+            avgB /= cols.Length;
+            return avgB;
         }
 
         private void OverlayWindow_Load(object sender, EventArgs e)

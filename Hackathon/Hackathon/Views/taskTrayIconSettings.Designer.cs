@@ -57,7 +57,7 @@ namespace Hackathon.Views
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "taskTrayIconSettings";
+            this.Text = "ProcrastinateMe TaskTray";
             this.TopMost = true;
             this.ResumeLayout(false);
 
