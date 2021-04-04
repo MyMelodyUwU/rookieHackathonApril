@@ -149,6 +149,7 @@ namespace Hackathon.Views
             this.Controls.Add(this.taskNameInput);
             this.Name = "NewTask";
             this.Text = "NewTask";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.NewTask_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minutesSelect)).EndInit();

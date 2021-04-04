@@ -28,7 +28,8 @@ namespace Hackathon
             newTaskInstance = new Views.NewTask();
             tasktrayIconSettingsInstance = new Views.taskTrayIconSettings();
 
-            Application.Run(overlayWindowInstance);
+            tasktraySettingsInstance.Show();
+            Application.Run(overlayWindowInstance); 
         }
     }
 }

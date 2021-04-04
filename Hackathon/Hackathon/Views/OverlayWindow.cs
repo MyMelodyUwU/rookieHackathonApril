@@ -211,6 +211,21 @@ namespace Hackathon.Views
             m_tasks.Add(newTask);
         }
 
+        public void EditTask(int editTaskIndex, int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 16, int subTextFontSize = 10, int timerWidth = 10)
+        {
+            Task newTask = new Task(timerMinutes,
+               timerSeconds,
+               timerColor,
+               timerBGColor,
+               timerMainText,
+               timerSubText,
+               textFontSize,
+               subTextFontSize,
+               timerWidth
+            );
+            m_tasks[editTaskIndex] = newTask;
+        }
+
         public void RemoveTask(int taskIndex)
         {
             if (taskIndex < m_tasks.Count)

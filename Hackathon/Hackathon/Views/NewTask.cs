@@ -27,6 +27,7 @@ namespace Hackathon.Views
             minutesSelect.Value = taskMinutes;
             secondsSelect.Value = taskSeconds;
             timerColorPicker.Color = taskColor;
+            pictureBox1.BackColor = taskColor;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -35,6 +36,8 @@ namespace Hackathon.Views
             pictureBox1.BackColor = timerColorPicker.Color;
         }
 
+        public bool editing = false;
+        public int editIndex = -1;
         private void AddBTN_Click(object sender, EventArgs e)
         {
             string taskName = taskNameInput.Text;
@@ -42,14 +45,21 @@ namespace Hackathon.Views
             int secondsDuration = (int)secondsSelect.Value;
             Color timerColor = timerColorPicker.Color;
 
-            Program.overlayWindowInstance.AddNewTask(minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+            if (!editing)
+            {
+                Program.overlayWindowInstance.AddNewTask(minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+            }
+            else
+            {
+                Program.overlayWindowInstance.EditTask(editIndex, minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+            }
             Program.tasktraySettingsInstance.RefreshList();
-            this.Close();
+            this.Hide();
         }
 
         private void cancelBTN_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

@@ -24,6 +24,7 @@ namespace Hackathon.Views
 
         private void createTaskBTN_Click(object sender, EventArgs e)
         {
+            Program.newTaskInstance.editing = false;
             Program.newTaskInstance.Show();
         }
 
@@ -43,7 +44,11 @@ namespace Hackathon.Views
             {
                 int taskIndex = tasksListBox.SelectedIndex;
                 Task selectedTask = Program.overlayWindowInstance.tasks[taskIndex];
+                
+                Program.newTaskInstance.editing = true;
+                Program.newTaskInstance.editIndex = taskIndex;
                 Program.newTaskInstance.SetData(selectedTask.timerSubText, selectedTask.timerMinutes, selectedTask.timerSeconds, selectedTask.timerColor);
+                Program.newTaskInstance.Show();
             }
         }
 
@@ -86,6 +91,11 @@ namespace Hackathon.Views
                 Pen rectPen = new Pen(Program.overlayWindowInstance.tasks[tasksListBox.SelectedIndex].timerColor,10);
                 e.Graphics.DrawRectangle(rectPen, e.Bounds);
             }
+        }
+
+        private void TaskTraySettings_Load(object sender, EventArgs e)
+        {
+            RefreshList();
         }
     }
 }
