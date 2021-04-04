@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,6 +98,37 @@ namespace Hackathon.Views
         private void TaskTraySettings_Load(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        private void LoadTaskListBTN_Click(object sender, EventArgs e)
+        {
+            loadFileDialog.Filter = "JSON files (*.json)|*.json";
+
+            if (loadFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                string filePath = loadFileDialog.FileName;
+
+                string json = File.ReadAllText(filePath);
+                List<Task> loadedTaskList = JsonConvert.DeserializeObject<List<Task>>(json);
+
+                Program.overlayWindowInstance.LoadTaskList(loadedTaskList);
+
+                RefreshList();
+            }
+        }
+
+        private void SaveTaskListBTN_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.Filter = "JSON files (*.json)|*.json";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                string filePath = saveFileDialog.FileName;
+
+                File.WriteAllText(filePath, JsonConvert.SerializeObject(Program.overlayWindowInstance.tasks));
+            }
         }
     }
 }

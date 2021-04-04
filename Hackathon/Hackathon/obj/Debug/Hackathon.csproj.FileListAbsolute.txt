@@ -38,3 +38,12 @@ D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hacka
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.TaskTraySettings.resources
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.NewTask.resources
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.taskTrayIconSettings.resources
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Newtonsoft.Json.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Text.Json.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Memory.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Text.Encodings.Web.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Buffers.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.exe.config

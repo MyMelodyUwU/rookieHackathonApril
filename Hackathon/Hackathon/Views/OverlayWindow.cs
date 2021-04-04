@@ -175,16 +175,20 @@ namespace Hackathon.Views
         private void OverlayWindow_Load(object sender, EventArgs e)
         {
             notifyIcon.Visible = true;
-            LoadTasks();
-            NextTask();
         }
 
-        void LoadTasks()
-        { 
-            currTasks.Add(new Task(0, 3, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
-            currTasks.Add(new Task(0, 3, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
+        public void LoadTaskList(List<Task> tasks)
+        {
+            timerRunning = false;
+            currTasks.Clear();
 
+            foreach(Task task in tasks)
+            {
+                currTasks.Add(task);
+            }
             m_tasks = currTasks;
+
+            NextTask();
         }
 
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
@@ -232,6 +236,11 @@ namespace Hackathon.Views
             {
                 m_tasks.RemoveAt(taskIndex);
             }
+        }
+
+        public void SetTaskList(List<Task> newList)
+        {
+            m_tasks = newList;
         }
 
         public void StartTaskList()

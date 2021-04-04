@@ -35,13 +35,14 @@ namespace Hackathon.Views
             this.createTaskBTN = new System.Windows.Forms.Button();
             this.tasksListBox = new System.Windows.Forms.ListBox();
             this.deleteTaskBTN = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.LoadTaskListBTN = new System.Windows.Forms.Button();
             this.startTaskListBTN = new System.Windows.Forms.Button();
             this.stopTaskListBTN = new System.Windows.Forms.Button();
             this.restartTaskList = new System.Windows.Forms.Button();
             this.SaveTaskListBTN = new System.Windows.Forms.Button();
             this.editTaskButton = new System.Windows.Forms.Button();
+            this.loadFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,23 +99,15 @@ namespace Hackathon.Views
             this.deleteTaskBTN.UseVisualStyleBackColor = true;
             this.deleteTaskBTN.Click += new System.EventHandler(this.deleteTaskBTN_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 118);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 4;
-            // 
             // LoadTaskListBTN
             // 
-            this.LoadTaskListBTN.Location = new System.Drawing.Point(162, 117);
+            this.LoadTaskListBTN.Location = new System.Drawing.Point(178, 117);
             this.LoadTaskListBTN.Name = "LoadTaskListBTN";
-            this.LoadTaskListBTN.Size = new System.Drawing.Size(87, 21);
+            this.LoadTaskListBTN.Size = new System.Drawing.Size(169, 21);
             this.LoadTaskListBTN.TabIndex = 5;
             this.LoadTaskListBTN.Text = "Load Task List";
             this.LoadTaskListBTN.UseVisualStyleBackColor = true;
+            this.LoadTaskListBTN.Click += new System.EventHandler(this.LoadTaskListBTN_Click);
             // 
             // startTaskListBTN
             // 
@@ -148,13 +141,13 @@ namespace Hackathon.Views
             // 
             // SaveTaskListBTN
             // 
-            this.SaveTaskListBTN.Location = new System.Drawing.Point(255, 115);
+            this.SaveTaskListBTN.Location = new System.Drawing.Point(16, 115);
             this.SaveTaskListBTN.Name = "SaveTaskListBTN";
-            this.SaveTaskListBTN.Size = new System.Drawing.Size(94, 23);
+            this.SaveTaskListBTN.Size = new System.Drawing.Size(156, 23);
             this.SaveTaskListBTN.TabIndex = 2;
             this.SaveTaskListBTN.Text = "Save Task List";
             this.SaveTaskListBTN.UseVisualStyleBackColor = true;
-            this.SaveTaskListBTN.Click += new System.EventHandler(this.deleteTaskBTN_Click);
+            this.SaveTaskListBTN.Click += new System.EventHandler(this.SaveTaskListBTN_Click);
             // 
             // editTaskButton
             // 
@@ -175,7 +168,6 @@ namespace Hackathon.Views
             this.Controls.Add(this.stopTaskListBTN);
             this.Controls.Add(this.startTaskListBTN);
             this.Controls.Add(this.LoadTaskListBTN);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tasksListBox);
             this.Controls.Add(this.SaveTaskListBTN);
             this.Controls.Add(this.editTaskButton);
@@ -206,12 +198,13 @@ namespace Hackathon.Views
         private System.Windows.Forms.Button createTaskBTN;
         private System.Windows.Forms.ListBox tasksListBox;
         private System.Windows.Forms.Button deleteTaskBTN;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button LoadTaskListBTN;
         private System.Windows.Forms.Button startTaskListBTN;
         private System.Windows.Forms.Button stopTaskListBTN;
         private System.Windows.Forms.Button restartTaskList;
         private System.Windows.Forms.Button SaveTaskListBTN;
         private System.Windows.Forms.Button editTaskButton;
+        private System.Windows.Forms.OpenFileDialog loadFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
