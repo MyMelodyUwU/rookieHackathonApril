@@ -15,9 +15,6 @@ namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
-        public static OverlayWindow instance;
-        public static TaskTraySettings taskTrayInstance;
-
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -46,8 +43,6 @@ namespace Hackathon.Views
 
             NativeImport.SetWindowLong(this.Handle, NativeImport.WindowsStyleModifiers.GWL_EXSTYLE,
              (IntPtr)(NativeImport.GetWindowLong(this.Handle, NativeImport.WindowsStyleModifiers.GWL_EXSTYLE) | NativeImport.WindowsStyleModifiers.WS_EX_LAYERED | NativeImport.WindowsStyleModifiers.WS_EX_TRANSPARENT));
-            // set transparency to 50% (128)
- 
             NativeImport.SetLayeredWindowAttributes(this.Handle, NativeImport.WindowsStyleModifiers.LWA_COLORKEY, 1, NativeImport.WindowsStyleModifiers.LWA_ALPHA);
 
             this.BackColor = Color.FromArgb(1,2,3);
@@ -131,7 +126,6 @@ namespace Hackathon.Views
                 }
 
                 this.Refresh();
-                this.Invalidate();
             }
         }
 
@@ -165,10 +159,7 @@ namespace Hackathon.Views
 
         private void OverlayWindow_Load(object sender, EventArgs e)
         {
-            instance = this;
-            TaskTraySettings taskTraySettings = new TaskTraySettings();
-            taskTrayInstance = taskTraySettings;
-
+            notifyIcon.Visible = true;
             LoadTasks();
             NextTask();
         }
@@ -182,10 +173,44 @@ namespace Hackathon.Views
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
         {
             //Open up settings panel
-            taskTrayInstance.Show();
-            taskTrayInstance.StartPosition = FormStartPosition.Manual;
-            taskTrayInstance.Location = new Point(Width - taskTrayInstance.Size.Width, Height - taskTrayInstance.Size.Height);
-            taskTrayInstance.TopMost = true;
+            Program.tasktraySettingsInstance.Show();
+            Program.tasktraySettingsInstance.StartPosition = FormStartPosition.Manual;
+            Program.tasktraySettingsInstance.Location = new Point(Width - Program.tasktraySettingsInstance.Size.Width, Height - Program.tasktraySettingsInstance.Size.Height);
+            Program.tasktraySettingsInstance.TopMost = true;
+        }
+
+        public void AddNewTask(int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 16, int subTextFontSize = 10, int timerWidth = 10)
+        {
+            Task newTask = new Task(timerMinutes,
+                timerSeconds,
+                timerColor,
+                timerBGColor,
+                timerMainText,
+                timerSubText,
+                textFontSize,
+                subTextFontSize,
+                timerWidth
+            );
+            tasks.Add(newTask);
+        }
+
+        private void OverlayWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            notifyIcon.Visible = false;
+            notifyIcon.Icon = null; // required to make icon disappear
+            notifyIcon.Dispose();
+            notifyIcon = null;
+
+            Program.tasktraySettingsInstance.Close();
+        }
+
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Program.tasktrayIconSettingsInstance.Location = new Point(MousePosition.X, MousePosition.Y - Program.tasktrayIconSettingsInstance.Height);
+                Program.tasktrayIconSettingsInstance.Show();
+            }
         }
     }
 

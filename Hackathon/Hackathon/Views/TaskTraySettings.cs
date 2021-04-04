@@ -21,5 +21,10 @@ namespace Hackathon.Views
         {
             Program.overlayWindowInstance.timerSize = timerSizeTB.Value;
         }
+
+        private void createTaskBTN_Click(object sender, EventArgs e)
+        {
+            Program.newTaskInstance.Show();
+        }
     }
 }

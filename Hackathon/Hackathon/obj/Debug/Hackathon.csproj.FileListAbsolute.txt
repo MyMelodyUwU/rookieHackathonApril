@@ -36,3 +36,5 @@ C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\bin\
 C:\Users\stubl\Desktop\github repo\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.OverlayWindow.resources
 D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.TaskTraySettings.resources
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.NewTask.resources
+D:\University\Hackathon\rookieHackathonApril\Hackathon\Hackathon\obj\Debug\Hackathon.Views.taskTrayIconSettings.resources

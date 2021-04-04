@@ -11,6 +11,8 @@ namespace Hackathon
     {
         public static Views.OverlayWindow overlayWindowInstance;
         public static Views.TaskTraySettings tasktraySettingsInstance;
+        public static Views.NewTask newTaskInstance;
+        public static Views.taskTrayIconSettings tasktrayIconSettingsInstance;
 
         /// <summary>
         /// The main entry point for the application.
@@ -23,6 +25,8 @@ namespace Hackathon
 
             overlayWindowInstance = new Views.OverlayWindow();
             tasktraySettingsInstance = new Views.TaskTraySettings();
+            newTaskInstance = new Views.NewTask();
+            tasktrayIconSettingsInstance = new Views.taskTrayIconSettings();
 
             Application.Run(overlayWindowInstance);
         }

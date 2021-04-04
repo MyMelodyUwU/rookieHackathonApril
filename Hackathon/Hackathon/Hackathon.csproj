@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\NewTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewTask.Designer.cs">
+      <DependentUpon>NewTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\NativeImport.cs" />
     <Compile Include="Views\OverlayWindow.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\taskTrayIconSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\taskTrayIconSettings.Designer.cs">
+      <DependentUpon>taskTrayIconSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TaskTraySettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,9 @@
       <DependentUpon>TaskTraySettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\RenderTimer.cs" />
+    <EmbeddedResource Include="Views\NewTask.resx">
+      <DependentUpon>NewTask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\OverlayWindow.resx">
       <DependentUpon>OverlayWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +114,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\taskTrayIconSettings.resx">
+      <DependentUpon>taskTrayIconSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TaskTraySettings.resx">
       <DependentUpon>TaskTraySettings.cs</DependentUpon>
     </EmbeddedResource>

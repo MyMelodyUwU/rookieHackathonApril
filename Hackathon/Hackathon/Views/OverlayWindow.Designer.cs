@@ -47,6 +47,7 @@ namespace Hackathon.Views
             this.notifyIcon.Text = "Click to open settings";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
             // 
             // OverlayWindow
             // 
@@ -55,7 +56,9 @@ namespace Hackathon.Views
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OverlayWindow";
+            this.ShowInTaskbar = false;
             this.Text = "OverlayWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OverlayWindow_FormClosing);
             this.Load += new System.EventHandler(this.OverlayWindow_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OverlayWindow_Paint);
             this.ResumeLayout(false);
