@@ -119,7 +119,7 @@ namespace Hackathon.Views
             // 
             this.startTaskListBTN.Location = new System.Drawing.Point(16, 12);
             this.startTaskListBTN.Name = "startTaskListBTN";
-            this.startTaskListBTN.Size = new System.Drawing.Size(110, 35);
+            this.startTaskListBTN.Size = new System.Drawing.Size(103, 35);
             this.startTaskListBTN.TabIndex = 6;
             this.startTaskListBTN.Text = "Start task list";
             this.startTaskListBTN.UseVisualStyleBackColor = true;
@@ -127,9 +127,9 @@ namespace Hackathon.Views
             // 
             // stopTaskListBTN
             // 
-            this.stopTaskListBTN.Location = new System.Drawing.Point(132, 12);
+            this.stopTaskListBTN.Location = new System.Drawing.Point(125, 12);
             this.stopTaskListBTN.Name = "stopTaskListBTN";
-            this.stopTaskListBTN.Size = new System.Drawing.Size(109, 35);
+            this.stopTaskListBTN.Size = new System.Drawing.Size(107, 35);
             this.stopTaskListBTN.TabIndex = 6;
             this.stopTaskListBTN.Text = "Stop task list";
             this.stopTaskListBTN.UseVisualStyleBackColor = true;
@@ -137,9 +137,9 @@ namespace Hackathon.Views
             // 
             // restartTaskList
             // 
-            this.restartTaskList.Location = new System.Drawing.Point(247, 12);
+            this.restartTaskList.Location = new System.Drawing.Point(238, 12);
             this.restartTaskList.Name = "restartTaskList";
-            this.restartTaskList.Size = new System.Drawing.Size(100, 35);
+            this.restartTaskList.Size = new System.Drawing.Size(109, 35);
             this.restartTaskList.TabIndex = 6;
             this.restartTaskList.Text = "Restart task list";
             this.restartTaskList.UseVisualStyleBackColor = true;

@@ -12,6 +12,8 @@ namespace Hackathon.Tools
 {
     public static class RenderTimer
     {
+        public static int maxRadius = 200;
+
         /// <summary>
         /// Draw a circular progress bar/timer
         /// </summary>
@@ -26,7 +28,7 @@ namespace Hackathon.Tools
         /// <param name="width">Arc line width</param>
         /// <param name="fontSize">Main text font size</param>
         /// <param name="subTextFontSize">Sub text font size</param>
-        public static void DrawCircularTimer(PaintEventArgs e, Vector2 position, float radius, string text, Color col, Color bgCol, float percent = 100, string subText = "", float width = 10, int fontSize = 16, int subTextFontSize = 12)
+        public static void DrawCircularTimer(PaintEventArgs e, Vector2 position, float radius, string text, Color col, Color bgCol, float percent = 100, string subText = "", float width = 10, int fontSize = 32, int subTextFontSize = 24)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
@@ -44,34 +46,26 @@ namespace Hackathon.Tools
             Font textFont = new Font("Arial Black", fontSize);
             Brush textBrush = new SolidBrush(Color.White);
 
+            float newSize = fontSize / (maxRadius / (radius-(width*2)));
+
+            textFont = new Font("Arial Black", newSize);
+
             float textWidth = e.Graphics.MeasureString(text, textFont).Width;
             float textHeight = e.Graphics.MeasureString(text, textFont).Height;
-
-            if (textWidth > radius)
-            {
-                textFont = new Font("Arial Black", (radius / fontSize) - ((width*2)/fontSize));
-
-                textWidth = e.Graphics.MeasureString(text, textFont).Width;
-                textHeight = e.Graphics.MeasureString(text, textFont).Height;
-            }
 
             e.Graphics.DrawString(text, textFont, textBrush, position.X - (radius / 2) - (textWidth / 2), position.Y - (radius / 2) - (textHeight / 2));
 
             Font subTextFont = new Font("Arial Black", subTextFontSize);
             Brush subTextBrush = new SolidBrush(Color.White);
 
+            float newSubSize = subTextFontSize / (maxRadius / (radius-(width*2.5f)));
+            subTextFont = new Font("Arial Black", newSubSize);
+
             float subTextWidth = e.Graphics.MeasureString(subText, subTextFont).Width;
             float subTextHeight = e.Graphics.MeasureString(subText, subTextFont).Height;
 
-            if (subTextWidth > (radius/1.15f))
-            {
-                subTextFont = new Font("Arial Black", ((radius/1.15f) / subTextFontSize) - ((width * 2) / subTextFontSize));
 
-                subTextWidth = e.Graphics.MeasureString(subText, subTextFont).Width;
-                subTextHeight = e.Graphics.MeasureString(subText, subTextFont).Height;
-            }
-
-            e.Graphics.DrawString(subText, subTextFont, subTextBrush, position.X - (radius/2) - (subTextWidth/2), position.Y - (radius / 2) + (textHeight / 2) - (subTextHeight / 2));
+            e.Graphics.DrawString(subText, subTextFont, subTextBrush, position.X - (radius / 2) - (subTextWidth / 2), position.Y - (radius / 2) + (textHeight / 2) - (subTextHeight / 2));
         }
     }
 }
