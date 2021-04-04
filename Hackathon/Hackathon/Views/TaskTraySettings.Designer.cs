@@ -34,15 +34,18 @@ namespace Hackathon.Views
             this.timerSizeLBL = new System.Windows.Forms.Label();
             this.createTaskBTN = new System.Windows.Forms.Button();
             this.tasksListBox = new System.Windows.Forms.ListBox();
-            this.tasksScrollBar = new System.Windows.Forms.VScrollBar();
             this.deleteTaskBTN = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.LoadTaskListBTN = new System.Windows.Forms.Button();
+            this.startTaskListBTN = new System.Windows.Forms.Button();
+            this.stopTaskListBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).BeginInit();
             this.SuspendLayout();
             // 
             // timerSizeTB
             // 
             this.timerSizeTB.LargeChange = 50;
-            this.timerSizeTB.Location = new System.Drawing.Point(12, 34);
+            this.timerSizeTB.Location = new System.Drawing.Point(12, 60);
             this.timerSizeTB.Maximum = 200;
             this.timerSizeTB.Minimum = 50;
             this.timerSizeTB.Name = "timerSizeTB";
@@ -56,16 +59,16 @@ namespace Hackathon.Views
             // timerSizeLBL
             // 
             this.timerSizeLBL.AutoSize = true;
-            this.timerSizeLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerSizeLBL.Location = new System.Drawing.Point(13, 13);
+            this.timerSizeLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerSizeLBL.Location = new System.Drawing.Point(9, 44);
             this.timerSizeLBL.Name = "timerSizeLBL";
-            this.timerSizeLBL.Size = new System.Drawing.Size(77, 18);
+            this.timerSizeLBL.Size = new System.Drawing.Size(54, 13);
             this.timerSizeLBL.TabIndex = 1;
             this.timerSizeLBL.Text = "Timer size";
             // 
             // createTaskBTN
             // 
-            this.createTaskBTN.Location = new System.Drawing.Point(16, 87);
+            this.createTaskBTN.Location = new System.Drawing.Point(16, 139);
             this.createTaskBTN.Name = "createTaskBTN";
             this.createTaskBTN.Size = new System.Drawing.Size(75, 23);
             this.createTaskBTN.TabIndex = 2;
@@ -76,21 +79,14 @@ namespace Hackathon.Views
             // tasksListBox
             // 
             this.tasksListBox.FormattingEnabled = true;
-            this.tasksListBox.Location = new System.Drawing.Point(16, 116);
+            this.tasksListBox.Location = new System.Drawing.Point(16, 168);
             this.tasksListBox.Name = "tasksListBox";
-            this.tasksListBox.Size = new System.Drawing.Size(239, 277);
+            this.tasksListBox.Size = new System.Drawing.Size(256, 225);
             this.tasksListBox.TabIndex = 3;
-            // 
-            // tasksScrollBar
-            // 
-            this.tasksScrollBar.Location = new System.Drawing.Point(258, 116);
-            this.tasksScrollBar.Name = "tasksScrollBar";
-            this.tasksScrollBar.Size = new System.Drawing.Size(17, 267);
-            this.tasksScrollBar.TabIndex = 4;
             // 
             // deleteTaskBTN
             // 
-            this.deleteTaskBTN.Location = new System.Drawing.Point(97, 87);
+            this.deleteTaskBTN.Location = new System.Drawing.Point(97, 139);
             this.deleteTaskBTN.Name = "deleteTaskBTN";
             this.deleteTaskBTN.Size = new System.Drawing.Size(75, 23);
             this.deleteTaskBTN.TabIndex = 2;
@@ -98,12 +94,51 @@ namespace Hackathon.Views
             this.deleteTaskBTN.UseVisualStyleBackColor = true;
             this.deleteTaskBTN.Click += new System.EventHandler(this.deleteTaskBTN_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(16, 112);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(156, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // LoadTaskListBTN
+            // 
+            this.LoadTaskListBTN.Location = new System.Drawing.Point(178, 111);
+            this.LoadTaskListBTN.Name = "LoadTaskListBTN";
+            this.LoadTaskListBTN.Size = new System.Drawing.Size(94, 21);
+            this.LoadTaskListBTN.TabIndex = 5;
+            this.LoadTaskListBTN.Text = "Load Task List";
+            this.LoadTaskListBTN.UseVisualStyleBackColor = true;
+            // 
+            // startTaskListBTN
+            // 
+            this.startTaskListBTN.Location = new System.Drawing.Point(12, 12);
+            this.startTaskListBTN.Name = "startTaskListBTN";
+            this.startTaskListBTN.Size = new System.Drawing.Size(126, 23);
+            this.startTaskListBTN.TabIndex = 6;
+            this.startTaskListBTN.Text = "Start task list";
+            this.startTaskListBTN.UseVisualStyleBackColor = true;
+            // 
+            // stopTaskListBTN
+            // 
+            this.stopTaskListBTN.Location = new System.Drawing.Point(144, 12);
+            this.stopTaskListBTN.Name = "stopTaskListBTN";
+            this.stopTaskListBTN.Size = new System.Drawing.Size(128, 23);
+            this.stopTaskListBTN.TabIndex = 6;
+            this.stopTaskListBTN.Text = "Stop task list";
+            this.stopTaskListBTN.UseVisualStyleBackColor = true;
+            // 
             // TaskTraySettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 411);
-            this.Controls.Add(this.tasksScrollBar);
+            this.Controls.Add(this.stopTaskListBTN);
+            this.Controls.Add(this.startTaskListBTN);
+            this.Controls.Add(this.LoadTaskListBTN);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tasksListBox);
             this.Controls.Add(this.deleteTaskBTN);
             this.Controls.Add(this.createTaskBTN);
@@ -130,7 +165,10 @@ namespace Hackathon.Views
         private System.Windows.Forms.Label timerSizeLBL;
         private System.Windows.Forms.Button createTaskBTN;
         private System.Windows.Forms.ListBox tasksListBox;
-        private System.Windows.Forms.VScrollBar tasksScrollBar;
         private System.Windows.Forms.Button deleteTaskBTN;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button LoadTaskListBTN;
+        private System.Windows.Forms.Button startTaskListBTN;
+        private System.Windows.Forms.Button stopTaskListBTN;
     }
 }
