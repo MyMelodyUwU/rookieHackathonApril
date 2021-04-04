@@ -11,7 +11,6 @@ namespace Hackathon.Views
 {
     public partial class OverlayWindow : Form
     {
-
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -34,7 +33,7 @@ namespace Hackathon.Views
         public  int LWA_DARKMODECOLORKEY = 0x030201;
         public  int LWA_LIGHTMODECOLORKEY = 0xFDFEFF;
 
-        public bool autoDarkMode;
+        public bool autoDarkMode =true;
 
         public OverlayWindow()
         {

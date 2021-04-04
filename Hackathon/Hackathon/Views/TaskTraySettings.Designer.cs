@@ -181,7 +181,7 @@ namespace Hackathon.Views
             // 
             this.padding_TB.Location = new System.Drawing.Point(12, 146);
             this.padding_TB.Maximum = 200;
-            this.padding_TB.Minimum = 50;
+            this.padding_TB.Minimum = 10;
             this.padding_TB.Name = "padding_TB";
             this.padding_TB.Size = new System.Drawing.Size(328, 45);
             this.padding_TB.TabIndex = 8;
@@ -212,6 +212,7 @@ namespace Hackathon.Views
             // darkModeCB
             // 
             this.darkModeCB.AutoSize = true;
+            this.darkModeCB.Enabled = false;
             this.darkModeCB.Location = new System.Drawing.Point(12, 266);
             this.darkModeCB.Name = "darkModeCB";
             this.darkModeCB.Size = new System.Drawing.Size(79, 17);
@@ -233,6 +234,8 @@ namespace Hackathon.Views
             // autoDarkMode
             // 
             this.autoDarkMode.AutoSize = true;
+            this.autoDarkMode.Checked = true;
+            this.autoDarkMode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoDarkMode.Location = new System.Drawing.Point(97, 266);
             this.autoDarkMode.Name = "autoDarkMode";
             this.autoDarkMode.Size = new System.Drawing.Size(129, 17);
