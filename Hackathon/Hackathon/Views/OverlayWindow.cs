@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Numerics;
 using Hackathon.Tools;
+using System.Drawing.Imaging;
 
 namespace Hackathon.Views
 {
@@ -31,6 +32,8 @@ namespace Hackathon.Views
 
         public  int LWA_DARKMODECOLORKEY = 0x030201;
         public  int LWA_LIGHTMODECOLORKEY = 0xFDFEFF;
+
+        public bool autoDarkMode;
 
         public OverlayWindow()
         {
@@ -173,6 +176,34 @@ namespace Hackathon.Views
                     this.Refresh();
                 }
             }
+
+            if (autoDarkMode)
+            {
+                updateAutoMode();
+            }
+        }
+
+        void updateAutoMode()
+        {
+            var col = GetColorAt(new Point(Width - m_timerPadding, Height- m_timerPadding));
+            float avg = (col.R + col.G + col.B) / 3;
+            Console.WriteLine(avg.ToString());
+            if(avg > 127)
+            {
+                if (Program.tasktraySettingsInstance.darkMode)
+                {
+                    Program.tasktraySettingsInstance.darkMode = false;
+                    ColorMode();
+                }
+            } else
+            {
+                if (!Program.tasktraySettingsInstance.darkMode)
+                {
+                    Program.tasktraySettingsInstance.darkMode = true;
+                    ColorMode();
+                }
+            }
+            
         }
 
         private void OverlayWindow_Paint(object sender, PaintEventArgs e)
@@ -188,7 +219,7 @@ namespace Hackathon.Views
                 if(timerMainText == null)
                     timerMainText = timeLeft.ToString(@"mm\:ss");
 
-                Tools.RenderTimer.DrawCircularTimer(e,
+                RenderTimer.DrawCircularTimer(e,
                     new Vector2(Width - m_timerPadding, Height- m_timerPadding),
                     timerSize,
                     timerMainText,
@@ -201,6 +232,24 @@ namespace Hackathon.Views
                     currTask.subTextFontSize
                 );
             }
+        }
+
+        Bitmap screenPixel = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
+        public Color GetColorAt(Point location)
+        {
+            using (Graphics gdest = Graphics.FromImage(screenPixel))
+            {
+                using (Graphics gsrc = Graphics.FromHwnd(IntPtr.Zero))
+                {
+                    IntPtr hSrcDC = gsrc.GetHdc();
+                    IntPtr hDC = gdest.GetHdc();
+                    int retval = NativeImport.BitBlt(hDC, 0, 0, 1, 1, hSrcDC, location.X, location.Y, (int)CopyPixelOperation.SourceCopy);
+                    gdest.ReleaseHdc();
+                    gsrc.ReleaseHdc();
+                }
+            }
+
+            return screenPixel.GetPixel(0, 0);
         }
 
         private void OverlayWindow_Load(object sender, EventArgs e)

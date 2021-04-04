@@ -166,5 +166,11 @@ namespace Hackathon.Views
             Program.overlayWindowInstance.Refresh();
             Program.overlayWindowInstance.ColorMode();
         }
+
+        private void autoDarkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            darkModeCB.Enabled = !autoDarkMode.Checked;
+            Program.overlayWindowInstance.autoDarkMode = autoDarkMode.Checked;
+        }
     }
 }

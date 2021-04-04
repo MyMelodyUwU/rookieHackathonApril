@@ -49,6 +49,7 @@ namespace Hackathon.Views
             this.widthTB = new System.Windows.Forms.TrackBar();
             this.darkModeCB = new System.Windows.Forms.CheckBox();
             this.clearTaskButton = new System.Windows.Forms.Button();
+            this.autoDarkMode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.padding_TB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthTB)).BeginInit();
@@ -211,7 +212,7 @@ namespace Hackathon.Views
             // darkModeCB
             // 
             this.darkModeCB.AutoSize = true;
-            this.darkModeCB.Location = new System.Drawing.Point(12, 258);
+            this.darkModeCB.Location = new System.Drawing.Point(12, 266);
             this.darkModeCB.Name = "darkModeCB";
             this.darkModeCB.Size = new System.Drawing.Size(79, 17);
             this.darkModeCB.TabIndex = 11;
@@ -229,11 +230,23 @@ namespace Hackathon.Views
             this.clearTaskButton.UseVisualStyleBackColor = true;
             this.clearTaskButton.Click += new System.EventHandler(this.clearTaskButton_Click);
             // 
+            // autoDarkMode
+            // 
+            this.autoDarkMode.AutoSize = true;
+            this.autoDarkMode.Location = new System.Drawing.Point(97, 266);
+            this.autoDarkMode.Name = "autoDarkMode";
+            this.autoDarkMode.Size = new System.Drawing.Size(129, 17);
+            this.autoDarkMode.TabIndex = 11;
+            this.autoDarkMode.Text = "Automatic Dark Mode";
+            this.autoDarkMode.UseVisualStyleBackColor = true;
+            this.autoDarkMode.CheckedChanged += new System.EventHandler(this.autoDarkMode_CheckedChanged);
+            // 
             // TaskTraySettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 592);
+            this.Controls.Add(this.autoDarkMode);
             this.Controls.Add(this.darkModeCB);
             this.Controls.Add(this.widthTB);
             this.Controls.Add(this.label1);
@@ -291,5 +304,6 @@ namespace Hackathon.Views
         private System.Windows.Forms.TrackBar widthTB;
         private System.Windows.Forms.CheckBox darkModeCB;
         private System.Windows.Forms.Button clearTaskButton;
+        private System.Windows.Forms.CheckBox autoDarkMode;
     }
 }
