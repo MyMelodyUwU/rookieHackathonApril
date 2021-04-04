@@ -56,7 +56,8 @@ namespace Hackathon.Views
             int color = darkMode ? LWA_DARKMODECOLORKEY : LWA_LIGHTMODECOLORKEY;
             NativeImport.SetLayeredWindowAttributes(this.Handle, (uint)color, 1, NativeImport.WindowsStyleModifiers.LWA_ALPHA);
 
-            this.BackColor =darkMode ? Color.FromArgb(1,2,3) : Color.FromArgb(255,254,253);
+            this.BackColor = darkMode ? Color.FromArgb(1,2,3) : Color.FromArgb(255,254,253);
+            this.Refresh();
         }
 
         private int m_timerSize = 125;
