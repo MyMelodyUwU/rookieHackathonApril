@@ -24,6 +24,16 @@ namespace Hackathon.Views
             Program.overlayWindowInstance.timerSize = timerSizeTB.Value;
         }
 
+        private void padding_TB_Scroll(object sender, EventArgs e)
+        {
+            Program.overlayWindowInstance.timerPadding = padding_TB.Value;
+        }
+
+        private void widthTB_Scroll(object sender, EventArgs e)
+        {
+            Program.overlayWindowInstance.arcWidth = widthTB.Value;
+        }
+
         private void createTaskBTN_Click(object sender, EventArgs e)
         {
             Program.newTaskInstance.ClearData();
@@ -100,6 +110,10 @@ namespace Hackathon.Views
 
         private void TaskTraySettings_Load(object sender, EventArgs e)
         {
+            timerSizeTB.Value = Program.overlayWindowInstance.timerSize;
+            padding_TB.Value = Program.overlayWindowInstance.timerPadding;
+            widthTB.Value = Program.overlayWindowInstance.arcWidth;
+
             RefreshList();
         }
 

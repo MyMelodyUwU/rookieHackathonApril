@@ -43,17 +43,23 @@ namespace Hackathon.Views
             this.editTaskButton = new System.Windows.Forms.Button();
             this.loadFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.paddingLBL = new System.Windows.Forms.Label();
+            this.padding_TB = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.widthTB = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.padding_TB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthTB)).BeginInit();
             this.SuspendLayout();
             // 
             // timerSizeTB
             // 
             this.timerSizeTB.LargeChange = 50;
-            this.timerSizeTB.Location = new System.Drawing.Point(12, 66);
+            this.timerSizeTB.Location = new System.Drawing.Point(16, 78);
             this.timerSizeTB.Maximum = 200;
             this.timerSizeTB.Minimum = 50;
             this.timerSizeTB.Name = "timerSizeTB";
-            this.timerSizeTB.Size = new System.Drawing.Size(337, 45);
+            this.timerSizeTB.Size = new System.Drawing.Size(331, 45);
             this.timerSizeTB.SmallChange = 10;
             this.timerSizeTB.TabIndex = 0;
             this.timerSizeTB.TickFrequency = 20;
@@ -64,7 +70,7 @@ namespace Hackathon.Views
             // 
             this.timerSizeLBL.AutoSize = true;
             this.timerSizeLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerSizeLBL.Location = new System.Drawing.Point(13, 50);
+            this.timerSizeLBL.Location = new System.Drawing.Point(13, 62);
             this.timerSizeLBL.Name = "timerSizeLBL";
             this.timerSizeLBL.Size = new System.Drawing.Size(54, 13);
             this.timerSizeLBL.TabIndex = 1;
@@ -72,7 +78,7 @@ namespace Hackathon.Views
             // 
             // createTaskBTN
             // 
-            this.createTaskBTN.Location = new System.Drawing.Point(16, 145);
+            this.createTaskBTN.Location = new System.Drawing.Point(12, 310);
             this.createTaskBTN.Name = "createTaskBTN";
             this.createTaskBTN.Size = new System.Drawing.Size(75, 23);
             this.createTaskBTN.TabIndex = 2;
@@ -83,15 +89,15 @@ namespace Hackathon.Views
             // tasksListBox
             // 
             this.tasksListBox.FormattingEnabled = true;
-            this.tasksListBox.Location = new System.Drawing.Point(16, 174);
+            this.tasksListBox.Location = new System.Drawing.Point(12, 339);
             this.tasksListBox.Name = "tasksListBox";
-            this.tasksListBox.Size = new System.Drawing.Size(333, 225);
+            this.tasksListBox.Size = new System.Drawing.Size(335, 225);
             this.tasksListBox.TabIndex = 3;
             this.tasksListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tasksListBox_DrawItem);
             // 
             // deleteTaskBTN
             // 
-            this.deleteTaskBTN.Location = new System.Drawing.Point(178, 145);
+            this.deleteTaskBTN.Location = new System.Drawing.Point(174, 310);
             this.deleteTaskBTN.Name = "deleteTaskBTN";
             this.deleteTaskBTN.Size = new System.Drawing.Size(75, 23);
             this.deleteTaskBTN.TabIndex = 2;
@@ -101,9 +107,9 @@ namespace Hackathon.Views
             // 
             // LoadTaskListBTN
             // 
-            this.LoadTaskListBTN.Location = new System.Drawing.Point(178, 117);
+            this.LoadTaskListBTN.Location = new System.Drawing.Point(174, 281);
             this.LoadTaskListBTN.Name = "LoadTaskListBTN";
-            this.LoadTaskListBTN.Size = new System.Drawing.Size(169, 21);
+            this.LoadTaskListBTN.Size = new System.Drawing.Size(173, 23);
             this.LoadTaskListBTN.TabIndex = 5;
             this.LoadTaskListBTN.Text = "Load Task List";
             this.LoadTaskListBTN.UseVisualStyleBackColor = true;
@@ -141,7 +147,7 @@ namespace Hackathon.Views
             // 
             // SaveTaskListBTN
             // 
-            this.SaveTaskListBTN.Location = new System.Drawing.Point(16, 115);
+            this.SaveTaskListBTN.Location = new System.Drawing.Point(12, 281);
             this.SaveTaskListBTN.Name = "SaveTaskListBTN";
             this.SaveTaskListBTN.Size = new System.Drawing.Size(156, 23);
             this.SaveTaskListBTN.TabIndex = 2;
@@ -151,7 +157,7 @@ namespace Hackathon.Views
             // 
             // editTaskButton
             // 
-            this.editTaskButton.Location = new System.Drawing.Point(97, 145);
+            this.editTaskButton.Location = new System.Drawing.Point(93, 310);
             this.editTaskButton.Name = "editTaskButton";
             this.editTaskButton.Size = new System.Drawing.Size(75, 23);
             this.editTaskButton.TabIndex = 2;
@@ -159,11 +165,56 @@ namespace Hackathon.Views
             this.editTaskButton.UseVisualStyleBackColor = true;
             this.editTaskButton.Click += new System.EventHandler(this.editTaskButton_Click);
             // 
+            // paddingLBL
+            // 
+            this.paddingLBL.AutoSize = true;
+            this.paddingLBL.Location = new System.Drawing.Point(16, 130);
+            this.paddingLBL.Name = "paddingLBL";
+            this.paddingLBL.Size = new System.Drawing.Size(46, 13);
+            this.paddingLBL.TabIndex = 7;
+            this.paddingLBL.Text = "Padding";
+            // 
+            // padding_TB
+            // 
+            this.padding_TB.Location = new System.Drawing.Point(19, 147);
+            this.padding_TB.Maximum = 200;
+            this.padding_TB.Minimum = 50;
+            this.padding_TB.Name = "padding_TB";
+            this.padding_TB.Size = new System.Drawing.Size(328, 45);
+            this.padding_TB.TabIndex = 8;
+            this.padding_TB.TickFrequency = 5;
+            this.padding_TB.Value = 50;
+            this.padding_TB.Scroll += new System.EventHandler(this.padding_TB_Scroll);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 199);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Timer width";
+            // 
+            // widthTB
+            // 
+            this.widthTB.Location = new System.Drawing.Point(19, 216);
+            this.widthTB.Maximum = 20;
+            this.widthTB.Minimum = 5;
+            this.widthTB.Name = "widthTB";
+            this.widthTB.Size = new System.Drawing.Size(328, 45);
+            this.widthTB.TabIndex = 10;
+            this.widthTB.Value = 5;
+            this.widthTB.Scroll += new System.EventHandler(this.widthTB_Scroll);
+            // 
             // TaskTraySettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 411);
+            this.ClientSize = new System.Drawing.Size(359, 576);
+            this.Controls.Add(this.widthTB);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.padding_TB);
+            this.Controls.Add(this.paddingLBL);
             this.Controls.Add(this.restartTaskList);
             this.Controls.Add(this.stopTaskListBTN);
             this.Controls.Add(this.startTaskListBTN);
@@ -186,6 +237,8 @@ namespace Hackathon.Views
             this.Activated += new System.EventHandler(this.TaskTraySettings_Activated);
             this.Load += new System.EventHandler(this.TaskTraySettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.padding_TB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthTB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +259,9 @@ namespace Hackathon.Views
         private System.Windows.Forms.Button editTaskButton;
         private System.Windows.Forms.OpenFileDialog loadFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Label paddingLBL;
+        private System.Windows.Forms.TrackBar padding_TB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar widthTB;
     }
 }

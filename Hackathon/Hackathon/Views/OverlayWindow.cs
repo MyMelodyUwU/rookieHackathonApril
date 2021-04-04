@@ -58,7 +58,10 @@ namespace Hackathon.Views
             set
             {
                 if (m_timerSize != value)
+                { 
                     m_timerSize = value;
+                    this.Refresh();
+                }
             }
         }
 
@@ -72,7 +75,27 @@ namespace Hackathon.Views
             set
             {
                 if (m_timerPadding != value)
+                {
                     m_timerPadding = value;
+                    this.Refresh();
+                }
+            }
+        }
+
+        private int m_arcWidth = 10;
+        public int arcWidth
+        {
+            get
+            {
+                return m_arcWidth;
+            }
+            set
+            {
+                if(m_arcWidth != value)
+                {
+                    m_arcWidth = value;
+                    this.Refresh();
+                }
             }
         }
 
@@ -158,14 +181,14 @@ namespace Hackathon.Views
                     timerMainText = timeLeft.ToString(@"mm\:ss");
 
                 Tools.RenderTimer.DrawCircularTimer(e,
-                    new Vector2(Width - timerPadding, Height- timerPadding),
+                    new Vector2(Width - m_timerPadding, Height- m_timerPadding),
                     timerSize,
                     timerMainText,
                     currTask.timerColor, 
                     currTask.timerBGColor,
                     percent,
                     currTask.timerSubText,
-                    currTask.timerWidth,
+                    m_arcWidth,
                     currTask.textFontSize,
                     currTask.subTextFontSize
                 );
@@ -202,7 +225,7 @@ namespace Hackathon.Views
             Program.tasktraySettingsInstance.TopMost = true;
         }
 
-        public void AddNewTask(int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 16, int subTextFontSize = 10, int timerWidth = 10)
+        public void AddNewTask(int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 32, int subTextFontSize = 24, int timerWidth = 10)
         {
             Task newTask = new Task(timerMinutes,
                 timerSeconds,
@@ -218,7 +241,7 @@ namespace Hackathon.Views
            // m_tasks.Add(newTask);
         }
 
-        public void EditTask(int editTaskIndex, int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 16, int subTextFontSize = 10, int timerWidth = 10)
+        public void EditTask(int editTaskIndex, int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 32, int subTextFontSize = 24, int timerWidth = 10)
         {
             Task newTask = new Task(timerMinutes,
                timerSeconds,
@@ -303,7 +326,7 @@ namespace Hackathon.Views
 
         public int timerWidth;
 
-        public Task(int timerMinutes, int timerSeconds, Color timerColor,Color timerBGColor,string timerMainText=null, string timerSubText ="", int textFontSize=16, int subTextFontSize=10,int timerWidth=10)
+        public Task(int timerMinutes, int timerSeconds, Color timerColor,Color timerBGColor,string timerMainText=null, string timerSubText ="", int textFontSize=32, int subTextFontSize=24,int timerWidth=10)
         {
             this.timerMinutes = timerMinutes;
             this.timerSeconds = timerSeconds;
