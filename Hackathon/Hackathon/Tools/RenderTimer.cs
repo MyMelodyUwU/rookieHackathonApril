@@ -46,6 +46,15 @@ namespace Hackathon.Tools
 
             float textWidth = e.Graphics.MeasureString(text, textFont).Width;
             float textHeight = e.Graphics.MeasureString(text, textFont).Height;
+
+            if (textWidth > radius)
+            {
+                textFont = new Font("Arial Black", (radius / fontSize) - ((width*2)/fontSize));
+
+                textWidth = e.Graphics.MeasureString(text, textFont).Width;
+                textHeight = e.Graphics.MeasureString(text, textFont).Height;
+            }
+
             e.Graphics.DrawString(text, textFont, textBrush, position.X - (radius / 2) - (textWidth / 2), position.Y - (radius / 2) - (textHeight / 2));
 
             Font subTextFont = new Font("Arial Black", subTextFontSize);
@@ -53,7 +62,16 @@ namespace Hackathon.Tools
 
             float subTextWidth = e.Graphics.MeasureString(subText, subTextFont).Width;
             float subTextHeight = e.Graphics.MeasureString(subText, subTextFont).Height;
-            e.Graphics.DrawString(subText, subTextFont, subTextBrush, position.X - (radius / 2) - (subTextWidth / 2), position.Y - (radius / 2) + (textHeight / 2) - (subTextHeight / 2));
+
+            if (subTextWidth > (radius/1.15f))
+            {
+                subTextFont = new Font("Arial Black", ((radius/1.15f) / subTextFontSize) - ((width * 2) / subTextFontSize));
+
+                subTextWidth = e.Graphics.MeasureString(subText, subTextFont).Width;
+                subTextHeight = e.Graphics.MeasureString(subText, subTextFont).Height;
+            }
+
+            e.Graphics.DrawString(subText, subTextFont, subTextBrush, position.X - (radius/2) - (subTextWidth/2), position.Y - (radius / 2) + (textHeight / 2) - (subTextHeight / 2));
         }
     }
 }

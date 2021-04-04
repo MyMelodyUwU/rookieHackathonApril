@@ -48,7 +48,7 @@ namespace Hackathon.Views
             this.BackColor = Color.FromArgb(1,2,3);
         }
 
-        private int m_timerSize = 100;
+        private int m_timerSize = 125;
         public int timerSize
         {
             get
