@@ -19,6 +19,7 @@ namespace Hackathon.Views
 
         private void NewTask_Load(object sender, EventArgs e)
         {
+            ClearData();
         }
 
         public void SetData(string taskName,int taskMinutes, int taskSeconds,  Color taskColor)
@@ -28,6 +29,15 @@ namespace Hackathon.Views
             secondsSelect.Value = taskSeconds;
             timerColorPicker.Color = taskColor;
             pictureBox1.BackColor = taskColor;
+        }
+
+        public void ClearData()
+        {
+            taskNameInput.Text = "";
+            minutesSelect.Value = 0;
+            secondsSelect.Value = 0;
+            timerColorPicker.Color = Color.LawnGreen;
+            pictureBox1.BackColor = Color.LawnGreen;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -45,16 +55,21 @@ namespace Hackathon.Views
             int secondsDuration = (int)secondsSelect.Value;
             Color timerColor = timerColorPicker.Color;
 
-            if (!editing)
+            timerColor = timerColor == null ? Color.LawnGreen : timerColor;
+
+            if (!string.IsNullOrEmpty(taskName) && (minuteDuration > 0 || secondsDuration > 0))
             {
-                Program.overlayWindowInstance.AddNewTask(minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+                if (!editing)
+                {
+                    Program.overlayWindowInstance.AddNewTask(minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+                }
+                else
+                {
+                    Program.overlayWindowInstance.EditTask(editIndex, minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+                }
+                Program.tasktraySettingsInstance.RefreshList();
+                this.Hide();
             }
-            else
-            {
-                Program.overlayWindowInstance.EditTask(editIndex, minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
-            }
-            Program.tasktraySettingsInstance.RefreshList();
-            this.Hide();
         }
 
         private void cancelBTN_Click(object sender, EventArgs e)

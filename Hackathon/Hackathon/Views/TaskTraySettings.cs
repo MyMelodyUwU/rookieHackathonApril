@@ -26,7 +26,9 @@ namespace Hackathon.Views
 
         private void createTaskBTN_Click(object sender, EventArgs e)
         {
+            Program.newTaskInstance.ClearData();
             Program.newTaskInstance.editing = false;
+            Program.newTaskInstance.editIndex = -1;
             Program.newTaskInstance.Show();
         }
 
@@ -46,7 +48,8 @@ namespace Hackathon.Views
             {
                 int taskIndex = tasksListBox.SelectedIndex;
                 Task selectedTask = Program.overlayWindowInstance.tasks[taskIndex];
-                
+
+                Program.newTaskInstance.ClearData();
                 Program.newTaskInstance.editing = true;
                 Program.newTaskInstance.editIndex = taskIndex;
                 Program.newTaskInstance.SetData(selectedTask.timerSubText, selectedTask.timerMinutes, selectedTask.timerSeconds, selectedTask.timerColor);

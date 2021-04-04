@@ -83,7 +83,7 @@ namespace Hackathon.Views
         {
             get
             {
-                return m_tasks;
+                return currTasks;
             }
         }
         Task completedTask = new Task(0, 0, Color.LawnGreen, Color.White, "TASKS COMPLETE!", "", 14);
@@ -175,6 +175,8 @@ namespace Hackathon.Views
         private void OverlayWindow_Load(object sender, EventArgs e)
         {
             notifyIcon.Visible = true;
+
+            NextTask();
         }
 
         public void LoadTaskList(List<Task> tasks)
@@ -212,7 +214,8 @@ namespace Hackathon.Views
                 subTextFontSize,
                 timerWidth
             );
-            m_tasks.Add(newTask);
+            currTasks.Add(newTask);
+           // m_tasks.Add(newTask);
         }
 
         public void EditTask(int editTaskIndex, int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 16, int subTextFontSize = 10, int timerWidth = 10)
@@ -227,19 +230,22 @@ namespace Hackathon.Views
                subTextFontSize,
                timerWidth
             );
-            m_tasks[editTaskIndex] = newTask;
+            currTasks[editTaskIndex] = newTask;
+           // m_tasks[editTaskIndex] = newTask;
         }
 
         public void RemoveTask(int taskIndex)
         {
             if (taskIndex < m_tasks.Count)
             {
-                m_tasks.RemoveAt(taskIndex);
+                currTasks.RemoveAt(taskIndex);
+               // m_tasks.RemoveAt(taskIndex);
             }
         }
 
         public void SetTaskList(List<Task> newList)
         {
+            currTasks = newList;
             m_tasks = newList;
         }
 
@@ -255,6 +261,8 @@ namespace Hackathon.Views
         {
             currTaskIndex = 0;
             m_tasks = currTasks;
+
+            timerRunning = true;
 
             NextTask();
             this.Refresh();
