@@ -54,41 +54,40 @@ def handle_Data():
         return f"DB item created with ID: {cursor.lastrowid}",201
 
 @app.route("/db/<int:id>")
-def get_DBItem(id, METHODS=["GET","PUT","DELETE"]):
-    conn = db_connection()
-    cursor = conn.cursor()
+def get_DbItem(id,METHODS =["GET","PUT","DELETE"]):
+    conn = db_connection;
+    cursor = conn.cursor;
 
-    item = None
+    item = Non;
 
-    if request.method=="GET":
-        cursor.execute("SELECT * FROM db WHERE id=?", (id,))
-        rows = cursor.fetchall()
-        for r in rows:
+    if request.method == "GET":
+        cursor.execute("SELECT * FROM db WHERE ID=?", (id,))
+        rows=  cursor.fetchall()
+        for r in row:
             item = r;
-        if item is not None:
+        if(items is not None):
             return jsonify(item),200
         else:
             return "Something went wrong",404
-
+    
     if request.method == "PUT":
         sql = """UPDATE book
-                SET podID = ?,
-                SET avaliability = ?,
-                WHERE id=? """
-
+                    SET podID = ?,
+                    SET avaliability = ?,
+                    WHERE id = ? """
         avaliability = request.form["avaliability"]
         updated_item = {
             "id" : id,
             "podID" : podID,
             "avaliability" : avaliability
         }
-        cursor = conn.execute(sql, (podID, avaliability,id))
+        cursor = conn.execute(sql,(podID,avaliability,id))
         conn.commit()
         return jsonify(updated_item)
 
     if request.method == "DELETE":
-        sql = """ DELETE FROM db WHERE id=? """
-        conn.execute(sql, (id,))
+        sql  = """DELETE FROM db WHERE id=? """
+        conn.execute(sql,(id,))
         conn.commit()
         return "The item with id: {} has been deleted".format(id),200
 

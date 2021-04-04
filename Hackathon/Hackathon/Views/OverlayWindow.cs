@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
 using Hackathon.Tools;
@@ -34,6 +29,9 @@ namespace Hackathon.Views
 
         public const int LWA_COLORKEY = 0x030201;
 
+        public  int LWA_DARKMODECOLORKEY = 0x030201;
+        public  int LWA_LIGHTMODECOLORKEY = 0xFDFEFF;
+
         public OverlayWindow()
         {
             InitializeComponent();
@@ -46,6 +44,16 @@ namespace Hackathon.Views
             NativeImport.SetLayeredWindowAttributes(this.Handle, NativeImport.WindowsStyleModifiers.LWA_COLORKEY, 1, NativeImport.WindowsStyleModifiers.LWA_ALPHA);
 
             this.BackColor = Color.FromArgb(1,2,3);
+        }
+
+        public void ColorMode()
+        {
+            bool darkMode = Program.tasktraySettingsInstance.darkMode;
+
+            int color = darkMode ? LWA_DARKMODECOLORKEY : LWA_LIGHTMODECOLORKEY;
+            NativeImport.SetLayeredWindowAttributes(this.Handle, (uint)color, 1, NativeImport.WindowsStyleModifiers.LWA_ALPHA);
+
+            this.BackColor =darkMode ? Color.FromArgb(1,2,3) : Color.FromArgb(255,254,253);
         }
 
         private int m_timerSize = 125;
@@ -184,8 +192,8 @@ namespace Hackathon.Views
                     new Vector2(Width - m_timerPadding, Height- m_timerPadding),
                     timerSize,
                     timerMainText,
-                    currTask.timerColor, 
-                    currTask.timerBGColor,
+                    currTask.timerColor,
+                    Program.tasktraySettingsInstance.darkMode ? Color.White : Color.Black,
                     percent,
                     currTask.timerSubText,
                     m_arcWidth,
@@ -198,7 +206,6 @@ namespace Hackathon.Views
         private void OverlayWindow_Load(object sender, EventArgs e)
         {
             notifyIcon.Visible = true;
-
             NextTask();
         }
 
@@ -238,7 +245,6 @@ namespace Hackathon.Views
                 timerWidth
             );
             currTasks.Add(newTask);
-           // m_tasks.Add(newTask);
         }
 
         public void EditTask(int editTaskIndex, int timerMinutes, int timerSeconds, Color timerColor, Color timerBGColor, string timerMainText = null, string timerSubText = "", int textFontSize = 32, int subTextFontSize = 24, int timerWidth = 10)
@@ -254,7 +260,6 @@ namespace Hackathon.Views
                timerWidth
             );
             currTasks[editTaskIndex] = newTask;
-           // m_tasks[editTaskIndex] = newTask;
         }
 
         public void RemoveTask(int taskIndex)
@@ -262,7 +267,6 @@ namespace Hackathon.Views
             if (taskIndex < m_tasks.Count)
             {
                 currTasks.RemoveAt(taskIndex);
-               // m_tasks.RemoveAt(taskIndex);
             }
         }
 

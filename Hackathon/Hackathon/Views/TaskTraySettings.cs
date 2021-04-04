@@ -1,19 +1,16 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hackathon.Views
 {
     public partial class TaskTraySettings : Form
     {
+        public bool darkMode=false;
+
         public TaskTraySettings()
         {
             InitializeComponent();
@@ -155,6 +152,19 @@ namespace Hackathon.Views
                 e.Cancel = true;
                 this.Hide();
             }
+        }
+
+        private void clearTaskButton_Click(object sender, EventArgs e)
+        {
+            Program.overlayWindowInstance.LoadTaskList(new List<Task>());
+            RefreshList();
+        }
+
+        private void darkModeCB_CheckedChanged(object sender, EventArgs e)
+        {
+            darkMode = darkModeCB.Checked;
+            Program.overlayWindowInstance.Refresh();
+            Program.overlayWindowInstance.ColorMode();
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Numerics;
+﻿using System.Numerics;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
@@ -44,7 +39,7 @@ namespace Hackathon.Tools
             e.Graphics.DrawArc(arcPen, position.X - radius, position.Y - radius, radius, radius, startAngle, sweepAngle);
 
             Font textFont = new Font("Arial Black", fontSize);
-            Brush textBrush = new SolidBrush(Color.White);
+            Brush textBrush = new SolidBrush(Program.tasktraySettingsInstance.darkMode ? Color.White : Color.Black);
 
             float newSize = fontSize / (maxRadius / (radius-(width*2)));
 
@@ -55,11 +50,10 @@ namespace Hackathon.Tools
 
             e.Graphics.DrawString(text, textFont, textBrush, position.X - (radius / 2) - (textWidth / 2), position.Y - (radius / 2) - (textHeight / 2));
 
-            Font subTextFont = new Font("Arial Black", subTextFontSize);
-            Brush subTextBrush = new SolidBrush(Color.White);
+            Brush subTextBrush = new SolidBrush(Program.tasktraySettingsInstance.darkMode ? Color.White : Color.Black);
 
             float newSubSize = subTextFontSize / (maxRadius / (radius-(width*2.5f)));
-            subTextFont = new Font("Arial Black", newSubSize);
+            Font subTextFont = new Font("Arial Black", newSubSize);
 
             float subTextWidth = e.Graphics.MeasureString(subText, subTextFont).Width;
             float subTextHeight = e.Graphics.MeasureString(subText, subTextFont).Height;
