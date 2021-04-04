@@ -1,11 +1,13 @@
 # ProcrastinateMe
 
-# Installation
- # clone the repo
+## Installation
+ ### clone the repo
 $ git clone https://github.com/MyMelodyUwU/rookieHackathonApril.git
 
-# Change the working directory to Procrastinate me
+## Change the working directory to Procrastinate me
 $ cd Procrastinate me
+
+#About
 
 Inspiration
 We all procrastinate on the computer and never get things done. ProcrastinateMe will change things up by allocating time for work and breaks, helping you focus on your tasks.
