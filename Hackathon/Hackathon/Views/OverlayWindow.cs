@@ -90,6 +90,7 @@ namespace Hackathon.Views
 
         Task currTask = null;
         int currTaskIndex = 0;
+        bool timerRunning = false;
 
         float timerMinutes = 1;
         float timerSeconds = 30;
@@ -123,20 +124,23 @@ namespace Hackathon.Views
 
         private void SecondsTimer_Tick(object sender, EventArgs e)
         {
-            if (currTask != null)
+            if (timerRunning)
             {
-                currSec--;
-
-                if (currMin <= 0 && currSec <= 0)
-                    NextTask();
-
-                if (currSec <= 0)
+                if (currTask != null)
                 {
-                    currSec = 59;
-                    currMin--;
-                }
+                    currSec--;
 
-                this.Refresh();
+                    if (currMin <= 0 && currSec <= 0)
+                        NextTask();
+
+                    if (currSec <= 0)
+                    {
+                        currSec = 59;
+                        currMin--;
+                    }
+
+                    this.Refresh();
+                }
             }
         }
 
@@ -213,6 +217,23 @@ namespace Hackathon.Views
             {
                 m_tasks.RemoveAt(taskIndex);
             }
+        }
+
+        public void StartTaskList()
+        {
+            timerRunning = true;
+        }
+        public void StopTaskList()
+        {
+            timerRunning = false;
+        }
+        public void RestartList()
+        {
+            currTaskIndex = 0;
+            m_tasks = currTasks;
+
+            NextTask();
+            this.Refresh();
         }
 
         private void OverlayWindow_FormClosing(object sender, FormClosingEventArgs e)

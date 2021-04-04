@@ -21,6 +21,14 @@ namespace Hackathon.Views
         {
         }
 
+        public void SetData(string taskName,int taskMinutes, int taskSeconds,  Color taskColor)
+        {
+            taskNameInput.Text = taskName;
+            minutesSelect.Value = taskMinutes;
+            secondsSelect.Value = taskSeconds;
+            timerColorPicker.Color = taskColor;
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             timerColorPicker.ShowDialog();

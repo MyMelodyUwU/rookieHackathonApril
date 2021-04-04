@@ -89,6 +89,11 @@ namespace Hackathon.Views
             this.AddBTN.UseVisualStyleBackColor = true;
             this.AddBTN.Click += new System.EventHandler(this.AddBTN_Click);
             // 
+            // timerColorPicker
+            // 
+            this.timerColorPicker.AnyColor = true;
+            this.timerColorPicker.FullOpen = true;
+            // 
             // ColorLBL
             // 
             this.ColorLBL.AutoSize = true;
