@@ -96,7 +96,7 @@ namespace Hackathon.Views
             this.deleteTaskBTN.TabIndex = 2;
             this.deleteTaskBTN.Text = "Delete Task";
             this.deleteTaskBTN.UseVisualStyleBackColor = true;
-            this.deleteTaskBTN.Click += new System.EventHandler(this.createTaskBTN_Click);
+            this.deleteTaskBTN.Click += new System.EventHandler(this.deleteTaskBTN_Click);
             // 
             // TaskTraySettings
             // 
@@ -117,6 +117,7 @@ namespace Hackathon.Views
             this.ShowInTaskbar = false;
             this.Text = "Hackathon Settings";
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.TaskTraySettings_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -76,7 +76,18 @@ namespace Hackathon.Views
             }
         }
 
-        List<Task> tasks = new List<Task>();
+        List<Task> currTasks = new List<Task>();
+        
+        List<Task> m_tasks = new List<Task>();
+        public List<Task> tasks
+        {
+            get
+            {
+                return m_tasks;
+            }
+        }
+        Task completedTask = new Task(0, 0, Color.LawnGreen, Color.White, "TASKS COMPLETE!", "", 14);
+
         Task currTask = null;
         int currTaskIndex = 0;
 
@@ -88,9 +99,9 @@ namespace Hackathon.Views
 
         public void NextTask()
         {
-            if (currTaskIndex < tasks.Count)
+            if (currTaskIndex < m_tasks.Count)
             {
-                currTask = tasks[currTaskIndex];
+                currTask = m_tasks[currTaskIndex];
                 timerMinutes = currTask.timerMinutes;
                 timerSeconds = currTask.timerSeconds;
 
@@ -102,7 +113,7 @@ namespace Hackathon.Views
             else
             {
                 Console.WriteLine("No tasks next");
-                currTask = new Task(0, 0, Color.LawnGreen, Color.White, "TASKS COMPLETE!", "", 14);
+                currTask = completedTask;
                 timerMinutes = currTask.timerMinutes;
                 timerSeconds = currTask.timerSeconds;
                 currMin = timerMinutes;
@@ -166,8 +177,10 @@ namespace Hackathon.Views
 
         void LoadTasks()
         { 
-            tasks.Add(new Task(0, 3, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
-            tasks.Add(new Task(0, 3, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
+            currTasks.Add(new Task(0, 3, Color.Orange,Color.White,null, "BREAK", 16, 8, 10));
+            currTasks.Add(new Task(0, 3, Color.LawnGreen,Color.White,null, "WORK", 16, 8, 10));
+
+            m_tasks = currTasks;
         }
 
         private void notifyIcon_DoubleClick(object sender, EventArgs e)
@@ -191,7 +204,15 @@ namespace Hackathon.Views
                 subTextFontSize,
                 timerWidth
             );
-            tasks.Add(newTask);
+            m_tasks.Add(newTask);
+        }
+
+        public void RemoveTask(int taskIndex)
+        {
+            if (taskIndex < m_tasks.Count)
+            {
+                m_tasks.RemoveAt(taskIndex);
+            }
         }
 
         private void OverlayWindow_FormClosing(object sender, FormClosingEventArgs e)

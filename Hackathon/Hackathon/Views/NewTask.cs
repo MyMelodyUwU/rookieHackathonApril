@@ -35,6 +35,7 @@ namespace Hackathon.Views
             Color timerColor = timerColorPicker.Color;
 
             Program.overlayWindowInstance.AddNewTask(minuteDuration, secondsDuration, timerColor, Color.White, null, taskName);
+            Program.tasktraySettingsInstance.RefreshList();
             this.Close();
         }
 
