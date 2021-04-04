@@ -235,6 +235,7 @@ namespace Hackathon.Views
             this.Text = "Hackathon Settings";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.TaskTraySettings_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TaskTraySettings_FormClosing);
             this.Load += new System.EventHandler(this.TaskTraySettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.timerSizeTB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.padding_TB)).EndInit();

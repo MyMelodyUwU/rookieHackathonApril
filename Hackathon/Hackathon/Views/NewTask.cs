@@ -76,5 +76,14 @@ namespace Hackathon.Views
         {
             this.Hide();
         }
+
+        private void NewTask_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
+        }
     }
 }

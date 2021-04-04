@@ -294,10 +294,12 @@ namespace Hackathon.Views
         private void OverlayWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             notifyIcon.Visible = false;
-            notifyIcon.Icon = null; // required to make icon disappear
+            notifyIcon.Icon = null;
             notifyIcon.Dispose();
             notifyIcon = null;
 
+            Program.newTaskInstance.Close();
+            Program.tasktrayIconSettingsInstance.Close();
             Program.tasktraySettingsInstance.Close();
         }
 

@@ -135,8 +135,7 @@ namespace Hackathon.Views
             // 
             // NewTask
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(187, 183);
             this.Controls.Add(this.secondsSelect);
             this.Controls.Add(this.minutesSelect);
@@ -147,9 +146,11 @@ namespace Hackathon.Views
             this.Controls.Add(this.taskDurationLBL);
             this.Controls.Add(this.TaskNameLBL);
             this.Controls.Add(this.taskNameInput);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewTask";
             this.Text = "NewTask";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewTask_FormClosing);
             this.Load += new System.EventHandler(this.NewTask_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minutesSelect)).EndInit();

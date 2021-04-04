@@ -34,11 +34,12 @@ namespace Hackathon.Views
             // 
             // closeBTN
             // 
+            this.closeBTN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBTN.Location = new System.Drawing.Point(9, 9);
+            this.closeBTN.Location = new System.Drawing.Point(0, 0);
             this.closeBTN.Margin = new System.Windows.Forms.Padding(0);
             this.closeBTN.Name = "closeBTN";
-            this.closeBTN.Size = new System.Drawing.Size(57, 27);
+            this.closeBTN.Size = new System.Drawing.Size(60, 20);
             this.closeBTN.TabIndex = 0;
             this.closeBTN.Text = "Quit";
             this.closeBTN.UseVisualStyleBackColor = true;
@@ -46,13 +47,13 @@ namespace Hackathon.Views
             // 
             // taskTrayIconSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(75, 45);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(60, 20);
             this.ControlBox = false;
             this.Controls.Add(this.closeBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "taskTrayIconSettings";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
